@@ -18,35 +18,10 @@ receiver = st.text_input("Enter the receiver's email address: ")
 # message to be sent
 message = st.text_area("Enter the message that you want to send: ")
 
-file = st.file_uploader("Choose a CSV file", accept_multiple_files=False,type="csv")
-st.write(file)
+
 
 
 if st.button('Send email'):
-    '''
-    msg = MIMEMultipart()
-    msg['From'] = "smartsheets.ai@gmail.com"
-    msg['To'] = receiver
-    msg['Subject'] = "Attendance report"
-    body = message
-
-    # attach the body with the msg instance
-    msg.attach(MIMEText(body, 'plain'))
-    attachment = open(file, "rb")
-
-    # instance of MIMEBase and named as p
-    p = MIMEBase('application', 'octet-stream')
-
-    # To change the payload into encoded form
-    p.set_payload((attachment).read())
-
-    # encode into base64
-    encoders.encode_base64(p)
-
-    p.add_header('Attendance',"attachment; filename = %s" %file)
-
-    msg.attach(p)'''
-
     # creates SMTP session
     s = smtplib.SMTP('smtp.gmail.com', 587)
 
